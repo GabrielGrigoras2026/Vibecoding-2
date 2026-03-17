@@ -1,23 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
-
-// 🎨 TIPOGRAFIE 100% SANS-SERIF - MODERN CLEAN
-// Plus Jakarta Sans - Sans-serif modern pentru TOATE titlurile (H1-H6)
-const plusJakarta = Plus_Jakarta_Sans({
-  variable: "--font-heading",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  display: "swap",
-});
-
-// Inter - Sans-serif curat pentru body text
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  weight: ["300", "400", "600", "700"],
-  display: "swap",
-});
 
 /**
  * 🔍 SEO METADATA
@@ -60,9 +42,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ro">
-      <body
-        className={`${plusJakarta.variable} ${inter.variable} antialiased`}
-      >
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+      </head>
+      <body className="antialiased">
         {children}
       </body>
     </html>
