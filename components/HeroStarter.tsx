@@ -10,6 +10,14 @@ import { useEffect, useState } from 'react';
  * Doar HTML + Tailwind CSS = fundația de bază.
  */
 
+// Scroll smooth cu offset 80px (rezervat pentru navigation bar viitor)
+const scrollTo = (id: string) => {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const top = el.getBoundingClientRect().top + window.scrollY - 80;
+  window.scrollTo({ top, behavior: 'smooth' });
+};
+
 export default function HeroStarter() {
   const [animKey, setAnimKey] = useState(0);
 
@@ -64,22 +72,22 @@ export default function HeroStarter() {
 
       {/* BUTOANE CTA - la 62% din înălțime, peste ceașcă */}
       <div key={`btns-${animKey}`} className="absolute top-[75%] left-0 right-0 z-10 flex flex-col sm:flex-row items-center justify-center gap-5 animate-fade-in delay-3">
-        <a
-          href="#meniu"
+        <button
+          onClick={() => scrollTo('meniu')}
           className="px-8 py-4 bg-amber-600 hover:bg-amber-500 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl shadow-lg"
         >
           Vezi Meniul
-        </a>
-        <a
-          href="#contact"
+        </button>
+        <button
+          onClick={() => scrollTo('contact')}
           className="px-8 py-4 bg-transparent border-2 border-white text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl shadow-lg hover:bg-white/10"
         >
           Vizitează-ne
-        </a>
+        </button>
       </div>
       {/* SCROLL INDICATOR */}
-      <a
-        href="#footer"
+      <button
+        onClick={() => scrollTo('features')}
         key={`arrow-${animKey}`}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 text-white/75 hover:text-amber-600 transition-colors animate-bounce animate-fade-in delay-4"
         aria-label="Scroll în jos"
@@ -97,7 +105,7 @@ export default function HeroStarter() {
         >
           <path d="m6 9 6 6 6-6" />
         </svg>
-      </a>
+      </button>
     </section>
   );
 }
