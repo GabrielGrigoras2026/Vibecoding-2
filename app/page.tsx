@@ -14,6 +14,7 @@
 
 // Importăm componentele starter (versiuni simple)
 import HeroStarter from '@/components/HeroStarter';
+import FeaturesStarter from '@/components/FeaturesStarter';
 import FooterStarter from '@/components/FooterStarter';
 
 /**
@@ -34,6 +35,7 @@ export default function Home() {
       */}
 
       <HeroStarter />
+      <FeaturesStarter />
       <FooterStarter />
 
       {/*
