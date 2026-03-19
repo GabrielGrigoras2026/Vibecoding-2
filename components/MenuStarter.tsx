@@ -29,15 +29,15 @@ const menuData = {
   ],
   'Cold Brew': [
     { name: 'Cold Brew Classic', price: 18, description: 'Cafea la rece, 12 ore de infuzie', image: 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600&auto=format&fit=crop&q=80' },
-    { name: 'Cold Brew cu Lapte', price: 20, description: 'Cold brew cu lapte de ovăz', image: 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600&auto=format&fit=crop&q=80' },
+    { name: 'Cold Brew cu Lapte', price: 20, description: 'Cold brew cu lapte de ovăz', image: '/bautura3.png', bg: '#c9a87c' },
     { name: 'Iced Latte', price: 19, description: 'Espresso cu gheață și lapte', image: 'https://images.unsplash.com/photo-1517959105821-eaf2591984ca?w=600&auto=format&fit=crop&q=80' },
     { name: 'Iced Matcha', price: 21, description: 'Matcha cu gheață și lapte de migdale', image: 'https://images.unsplash.com/photo-1515823064-d6e0c04616a7?w=600&auto=format&fit=crop&q=80' },
-    { name: 'Nitro Cold Brew', price: 22, description: 'Cold brew cu azot, cremos și plin', image: 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600&auto=format&fit=crop&q=80' },
-    { name: 'Cold Brew Tonic', price: 21, description: 'Cold brew cu apă tonică și lămâie', image: 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600&auto=format&fit=crop&q=80' },
+    { name: 'Nitro Cold Brew', price: 22, description: 'Cold brew cu azot, cremos și plin', image: '/bautura2.png' },
+    { name: 'Cold Brew Tonic', price: 21, description: 'Cold brew cu apă tonică și lămâie', image: '/bautura1.png' },
   ],
   Patiserie: [
     { name: 'Croissant Simplu', price: 10, description: 'Croissant franțuzesc cu unt și foietaj', image: 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600&auto=format&fit=crop&q=80' },
-    { name: 'Croissant Migdale', price: 14, description: 'Umplutură de cremă de migdale', image: 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600&auto=format&fit=crop&q=80' },
+    { name: 'Macaron Asortate', price: 18, description: 'Set 6 macarons cu arome variate', image: 'https://images.unsplash.com/photo-1569864358642-9d1684040f43?w=600&auto=format&fit=crop&q=80' },
     { name: 'Muffin Afine', price: 12, description: 'Muffin pufos cu afine proaspete', image: 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600&auto=format&fit=crop&q=80' },
     { name: 'Cheesecake', price: 18, description: 'Cheesecake cremos cu fructe de pădure', image: 'https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=600&auto=format&fit=crop&q=80' },
     { name: 'Brownie', price: 14, description: 'Brownie intens de ciocolată neagră', image: 'https://images.unsplash.com/photo-1564355808539-22fda35bed7e?w=600&auto=format&fit=crop&q=80' },
@@ -70,7 +70,7 @@ export default function MenuStarter() {
         {/* TITLU */}
         <div className="text-center mb-10">
           <h2 className="text-5xl font-bold text-gray-900 mb-4">
-            Meniul Nostru
+            Meniul <span className="text-teal-500">nostru</span>
           </h2>
           <p className="text-lg text-gray-500">
             Ingrediente premium, preparate cu pasiune
@@ -106,11 +106,14 @@ export default function MenuStarter() {
               className="group bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl hover:scale-[1.02] transition-all duration-300"
             >
               {/* IMAGINE — aspect ratio 4:3 */}
-              <div className="aspect-[4/3] overflow-hidden">
+              <div
+                className="aspect-[4/3] overflow-hidden"
+                style={item.bg ? { backgroundColor: item.bg } : undefined}
+              >
                 <img
                   src={item.image}
                   alt={item.name}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  className={`w-full h-full transition-transform duration-300 group-hover:scale-105 ${item.bg ? 'object-contain' : 'object-cover'}`}
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
                     target.style.display = 'none';
