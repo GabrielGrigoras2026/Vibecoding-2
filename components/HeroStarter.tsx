@@ -63,7 +63,7 @@ export default function HeroStarter() {
       {/* TITLU + SUBTITLU - sus, la 20% din înălțime */}
       <div className="absolute top-[20%] left-0 right-0 z-10 px-6 text-center text-white">
         <h1 key={`title-${animKey}`} className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in delay-1">
-          Locul tău,<br />unde cafeaua te trezește!
+          Locul tău,<br /><span className="text-amber-500">unde cafeaua te trezește!</span>
         </h1>
         <p key={`sub-${animKey}`} className="text-3xl md:text-4xl font-bold text-white/90 animate-fade-in delay-2">
           Mai mult decât o băutură — e ritualul tău de dimineață
@@ -79,8 +79,14 @@ export default function HeroStarter() {
           Vezi Meniul
         </button>
         <button
+          onClick={() => scrollTo('despre')}
+          className="px-8 py-4 bg-teal-500 hover:bg-teal-400 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl shadow-lg"
+        >
+          Despre noi
+        </button>
+        <button
           onClick={() => scrollTo('contact')}
-          className="px-8 py-4 bg-transparent border-2 border-white text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl shadow-lg hover:bg-white/10"
+          className="px-8 py-4 bg-amber-700 hover:bg-amber-600 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl shadow-lg"
         >
           Vizitează-ne
         </button>

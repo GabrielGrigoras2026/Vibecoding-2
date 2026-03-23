@@ -30,7 +30,7 @@ export default function FeaturesStarter() {
     return () => observer.disconnect();
   }, []);
 
-  const cardBase = `group bg-white rounded-2xl overflow-hidden border border-gray-100
+  const cardBase = `group bg-amber-50 rounded-2xl overflow-hidden border border-amber-100
     shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-500`;
 
   const fadeClass = (delay: number) =>
@@ -43,7 +43,7 @@ export default function FeaturesStarter() {
         {/* TITLU + SUBTITLU */}
         <div className="text-center mb-12">
           <h2 className="text-5xl font-bold text-gray-900 mb-4">
-            De ce Vibe Coffee?
+            De ce <span className="text-teal-500">Vibe Coffee</span>?
           </h2>
           <p className="text-lg text-gray-500">
             Experiență unică, ingrediente premium, atmosferă perfectă
@@ -104,7 +104,7 @@ export default function FeaturesStarter() {
 
           {/* COLOANA DREAPTA: Ambient Relaxant — card mare */}
           <div
-            className={`${cardBase} ${fadeClass(400)} flex flex-col`}
+            className={`group bg-amber-200 rounded-2xl overflow-hidden border border-amber-300 shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-500 ${fadeClass(400)} flex flex-col`}
             style={{ transitionDelay: '400ms' }}
           >
             {/* Imagine locală — ocupă cea mai mare parte */}

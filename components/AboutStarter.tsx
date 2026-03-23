@@ -1,10 +1,12 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import RezervaModal from './RezervaModal';
 
 export default function AboutStarter() {
   const sectionRef = useRef<HTMLElement>(null);
   const [visible, setVisible] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -18,19 +20,21 @@ export default function AboutStarter() {
   }, []);
 
   return (
+    <>
+    {showModal && <RezervaModal onClose={() => setShowModal(false)} />}
     <section ref={sectionRef} id="despre" className="bg-white py-20 px-6">
       <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
         {/* IMAGINE */}
         <div
-          className={`overflow-hidden rounded-2xl shadow-xl transition-all duration-700 ${
+          className={`group overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-500 ${
             visible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
           }`}
         >
           <img
             src="/interior2.png"
             alt="Interiorul Vibe Caffè"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
           />
         </div>
 
@@ -41,43 +45,52 @@ export default function AboutStarter() {
           }`}
         >
           <h2 className="text-5xl font-bold text-gray-900 mb-6">
-            Povestea noastră
+            Despre <span className="text-teal-500">noi</span>
           </h2>
 
           <p className="text-gray-600 text-lg leading-relaxed mb-5">
-            Vibe Caffè s-a născut dintr-o pasiune simplă: credința că o cafea bună poate transforma
-            o zi obișnuită într-una memorabilă. Am deschis ușile în 2019 cu un singur gând —
-            să creăm un loc în care fiecare om să se simtă acasă, indiferent de ora sau starea de spirit.
+            Vibe Caffè a început din dorința de a aduce experiența autentică a cafelei de specialitate
+            în inima orașului. Fiecare ceașcă este pregătită cu grijă de bariștii noștri experimentați,
+            formați și certificați internațional.
           </p>
 
           <p className="text-gray-600 text-lg leading-relaxed mb-5">
-            Știm că uneori ai nevoie de liniște ca să gândești clar. De aceea am amenajat Vibe Caffè
-            cu <strong className="text-gray-800">Wi-Fi rapid</strong>, prize la fiecare masă și o
-            atmosferă prietenoasă cu studenții și freelancerii. Avem chiar și o
-            <strong className="text-gray-800"> mică bibliotecă </strong>
-            — poți lua o carte, o citești la o ceașcă de cafea și o lași pentru următorul vizitator.
+            Colaborăm direct cu plantații din America de Sud și Africa, selectând doar cele mai bune
+            boabe, prăjite la perfecție pentru a scoate în evidență notele unice de aromă.
+            Știm că uneori ai nevoie de liniște ca să gândești clar — de aceea am amenajat Vibe Caffè
+            cu Wi-Fi rapid, prize la fiecare masă și o mică bibliotecă în care poți citi la o ceașcă de cafea.
           </p>
 
-          <p className="text-gray-600 text-lg leading-relaxed">
-            De la primul espresso de dimineață până la ultima sesiune de studiu seara, Vibe Caffè
-            e locul unde timpul trece frumos. Te așteptăm cu un zâmbet și cu cea mai bună cafea
-            din cartier.
-          </p>
-
-          {/* DOTĂRI */}
-          <div className="mt-8 flex flex-wrap gap-3">
-            {['Wi-Fi gratuit', 'Prize la mese', 'Bibliotecă', 'Spațiu de studiu', 'Muzică ambientală relaxantă'].map((item) => (
-              <span
-                key={item}
-                className="px-4 py-2 bg-amber-50 text-amber-700 rounded-full text-sm font-semibold border border-amber-200"
-              >
+          {/* Listă cu checkmarks */}
+          <ul className="mt-6 space-y-3">
+            {[
+              'Boabe proaspăt prăjite săptămânal',
+              'Bariști certificați internațional',
+              'Produse locale și sustenabile',
+              'WiFi gratuit & loc de muncă',
+            ].map((item) => (
+              <li key={item} className="flex items-center gap-3 text-gray-700 text-base font-medium">
+                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-teal-500 flex items-center justify-center">
+                  <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                </span>
                 {item}
-              </span>
+              </li>
             ))}
-          </div>
+          </ul>
+
+          {/* BUTON CTA */}
+          <button
+            onClick={() => setShowModal(true)}
+            className="mt-8 px-8 py-4 bg-teal-500 hover:bg-teal-400 text-white font-semibold rounded-full shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300"
+          >
+            Programează o Vizită
+          </button>
         </div>
 
       </div>
     </section>
+    </>
   );
 }
