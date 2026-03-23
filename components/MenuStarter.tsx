@@ -45,6 +45,7 @@ const menuData = {
   ],
 };
 
+type MenuItem = { name: string; price: number; description: string; image: string; bg?: string };
 type Category = keyof typeof menuData;
 const categories = Object.keys(menuData) as Category[];
 
@@ -100,7 +101,7 @@ export default function MenuStarter() {
             fading ? 'opacity-0' : 'opacity-100'
           }`}
         >
-          {menuData[displayedCategory].map((item) => (
+          {(menuData[displayedCategory] as MenuItem[]).map((item) => (
             <div
               key={item.name}
               className="group bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl hover:scale-[1.02] transition-all duration-300"
