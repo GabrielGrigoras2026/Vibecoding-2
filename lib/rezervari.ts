@@ -23,7 +23,8 @@ export async function citesteRezervari() {
   const { data, error } = await supabase
     .from('rezervari')
     .select('*')
-    .order('created_at', { ascending: false })
+    .order('data', { ascending: true })
+    .order('ora', { ascending: true })
 
   if (error) throw new Error(error.message)
   return data

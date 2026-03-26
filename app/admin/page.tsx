@@ -61,12 +61,18 @@ export default function AdminPage() {
     await incarcaRezervari();
   };
 
-  const rezervariFiltrate = rezervari.filter(r => {
-    const matchFiltru = filtru === 'toate' || r.status === filtru;
-    const matchCautare = r.nume.toLowerCase().includes(cautare.toLowerCase()) ||
-      r.email.toLowerCase().includes(cautare.toLowerCase());
-    return matchFiltru && matchCautare;
-  });
+  const rezervariFiltrate = rezervari
+    .filter(r => {
+      const matchFiltru = filtru === 'toate' || r.status === filtru;
+      const matchCautare = r.nume.toLowerCase().includes(cautare.toLowerCase()) ||
+        r.email.toLowerCase().includes(cautare.toLowerCase());
+      return matchFiltru && matchCautare;
+    })
+    .sort((a, b) => {
+      const dateA = `${a.data} ${a.ora}`;
+      const dateB = `${b.data} ${b.ora}`;
+      return dateA.localeCompare(dateB);
+    });
 
   const formatData = (data: string) => {
     const [y, m, d] = data.split('-');
