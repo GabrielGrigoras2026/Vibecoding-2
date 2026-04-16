@@ -269,16 +269,27 @@ export default function ChatWidget({ onRezervare }: { onRezervare?: () => void }
         </div>
       )}
 
-      {/* BUTON FLOTANT — vizibil doar când chat-ul e închis */}
+      {/* MANȘETĂ + BUTON FLOTANT — vizibil doar când chat-ul e închis */}
       {!isOpen && (
-        <button
-          onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full text-white text-2xl shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110 animate-pulse"
-          style={{ background: 'linear-gradient(135deg, #14B8A6, #0D9488)' }}
-          aria-label="Deschide Barista Bot"
-        >
-          ☕
-        </button>
+        <div className="fixed bottom-0 right-0 z-50 flex flex-col items-end">
+          {/* Manșetă verde voalată */}
+          <div
+            className="flex items-center gap-2 px-4 py-2 rounded-tl-2xl text-sm font-semibold"
+            style={{ background: 'rgba(20,184,166,0.25)', backdropFilter: 'blur(8px)', color: '#0D9488' }}
+          >
+            <span>☕</span>
+            <span>Barista Bot</span>
+          </div>
+          {/* Buton rotund */}
+          <button
+            onClick={() => setIsOpen(true)}
+            className="w-full px-6 py-3 text-white text-sm font-semibold flex items-center justify-center gap-2 transition-all duration-300"
+            style={{ background: 'linear-gradient(135deg, #14B8A6, #0D9488)' }}
+            aria-label="Deschide Barista Bot"
+          >
+            Întreabă-mă orice! ☕
+          </button>
+        </div>
       )}
     </>
   );

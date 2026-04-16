@@ -48,7 +48,7 @@ export default function HeroStarter({ onRezervare }: { onRezervare?: () => void 
     };
   }, []);
   return (
-    <section className="relative h-[85vh] md:min-h-screen flex items-center justify-center">
+    <section className="relative min-h-screen flex items-center justify-center">
       {/* IMAGINE FUNDAL */}
       <div
         className="absolute inset-0 bg-cover bg-bottom bg-no-repeat"
