@@ -141,12 +141,13 @@ export default function ChatWidget({ onRezervare }: { onRezervare?: () => void }
       {/* FEREASTRA DE CHAT */}
       {isOpen && (
         <div
-          className="fixed bottom-24 left-3 right-3 sm:left-auto sm:right-6 sm:w-[350px] z-50 flex flex-col rounded-2xl shadow-2xl overflow-hidden"
+          className="fixed left-3 right-3 sm:left-auto sm:right-6 sm:w-[350px] z-50 flex flex-col rounded-2xl shadow-2xl overflow-hidden"
           style={{
             background: 'rgba(255,255,255,0.95)',
             backdropFilter: 'blur(12px)',
             border: '1px solid rgba(255,255,255,0.3)',
-            maxHeight: '520px',
+            bottom: '80px',
+            maxHeight: 'calc(100vh - 120px)',
           }}
         >
           {/* HEADER */}
