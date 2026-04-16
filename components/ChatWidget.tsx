@@ -16,9 +16,9 @@ function getContextualReplies(botReply: string): string[] {
 
 export default function ChatWidget({ onRezervare }: { onRezervare?: () => void }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState([
+  const [messages, setMessages] = useState<{ role: 'user' | 'assistant'; content: string }[]>([
     {
-      role: 'assistant' as const,
+      role: 'assistant',
       content: 'Bună ziua! Sunt Barista Bot ☕ Luni dimineața fără cafea e doar... luni dimineața. Cu ce te pot ajuta?',
     },
   ]);
