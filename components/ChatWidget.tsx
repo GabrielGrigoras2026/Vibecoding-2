@@ -271,7 +271,7 @@ export default function ChatWidget({ onRezervare }: { onRezervare?: () => void }
 
       {/* MANȘETĂ + BUTON FLOTANT — vizibil doar când chat-ul e închis */}
       {!isOpen && (
-        <div className="fixed bottom-0 right-0 z-50 flex flex-col items-end">
+        <div className="fixed bottom-0 right-0 z-50 flex flex-col items-end" style={{ paddingRight: 'env(safe-area-inset-right, 0px)' }}>
           {/* Manșetă verde voalată */}
           <div
             className="flex items-center gap-2 px-4 py-2 rounded-tl-2xl text-sm font-semibold"
