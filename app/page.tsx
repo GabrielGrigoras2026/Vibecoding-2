@@ -7,6 +7,7 @@ import AboutStarter from '@/components/AboutStarter';
 import MenuStarter from '@/components/MenuStarter';
 import FooterStarter from '@/components/FooterStarter';
 import RezervaModal from '@/components/RezervaModal';
+import ChatWidget from '@/components/ChatWidget';
 
 export default function Home() {
   const [showModal, setShowModal] = useState(false);
@@ -19,6 +20,7 @@ export default function Home() {
       <MenuStarter />
       <FooterStarter />
       {showModal && <RezervaModal onClose={() => setShowModal(false)} />}
+      <ChatWidget onRezervare={() => setShowModal(true)} />
     </>
   );
 }

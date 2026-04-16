@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import ChatWidget from "@/components/ChatWidget";
+
 
 /**
  * 🔍 SEO METADATA
@@ -50,7 +50,6 @@ export default function RootLayout({
       </head>
       <body className="antialiased">
         {children}
-        <ChatWidget />
       </body>
     </html>
   );

@@ -85,6 +85,7 @@ export default function HeroStarter({ onRezervare }: { onRezervare?: () => void 
           Despre noi
         </button>
         <button
+          id="rezervare"
           onClick={() => onRezervare ? onRezervare() : scrollTo('contact')}
           className="px-8 py-4 bg-amber-700 hover:bg-amber-600 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl shadow-lg"
         >
