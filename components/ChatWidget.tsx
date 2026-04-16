@@ -55,6 +55,7 @@ export default function ChatWidget({ onRezervare }: { onRezervare?: () => void }
             onClick={() => {
               if (href === '/#rezervare') {
                 onRezervare?.();
+                setIsOpen(false);
               } else if (href === '/#meniu') {
                 document.getElementById('meniu')?.scrollIntoView({ behavior: 'smooth' });
                 setIsOpen(false);
@@ -140,7 +141,7 @@ export default function ChatWidget({ onRezervare }: { onRezervare?: () => void }
       {/* FEREASTRA DE CHAT */}
       {isOpen && (
         <div
-          className="fixed bottom-24 right-3 left-3 sm:left-auto sm:right-6 sm:w-[350px] z-50 flex flex-col rounded-2xl shadow-2xl overflow-hidden"
+          className="fixed bottom-24 right-3 left-3 sm:right-auto sm:left-6 sm:w-[350px] z-50 flex flex-col rounded-2xl shadow-2xl overflow-hidden"
           style={{
             background: 'rgba(255,255,255,0.95)',
             backdropFilter: 'blur(12px)',
@@ -272,7 +273,7 @@ export default function ChatWidget({ onRezervare }: { onRezervare?: () => void }
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full text-white text-2xl shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110 animate-pulse"
+          className="fixed bottom-6 left-6 z-50 w-14 h-14 rounded-full text-white text-2xl shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110 animate-pulse"
           style={{ background: 'linear-gradient(135deg, #14B8A6, #0D9488)' }}
           aria-label="Deschide Barista Bot"
         >
